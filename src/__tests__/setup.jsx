@@ -79,6 +79,10 @@ global.setFetchResponse = (val) => {
     }))
 }
 
+HTMLFormElement.prototype.requestSubmit = function() {
+    this.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+};
+
 afterEach(() => {
     cleanup();
 })
